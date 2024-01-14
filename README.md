@@ -1,2 +1,3 @@
 # CSE30-Programming-Abstractions
-Labs and Programming Assignments
+This repository conatins all od the Labs and Programming Assignments I have completed or worked on in CSE30: Programming Abstractions at UCSC. Each Lab and PA folder willl contain the project itself, as well as a read me and the project description!
+Hope this is helpful!
