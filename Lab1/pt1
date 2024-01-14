@@ -1,1 +1,326 @@
+Question 1
+2 / 2 pts
+Complex Number
+A complex number has a real and imaginary parts and can be represented as x + yi, where x is a real part and yi is an imaginary part, x, y are real numbers, i . Using complex numbers allow us to find solutions to all polynomial equations, especially those that have no real number solutions! The fundamental theorem of algebra asserts that every polynomial equation with real or complex coefficients has a solution which is a complex number. For example, the equation {\displaystyle (x+1)^{2}=-9} has no real solution, since the square of a real number cannot be negative but has the two nonreal complex solutions −1 + 3i and −1 − 3i.
 
+Complex numbers have their own rules for addition, subtraction, multiplication, and division. So, you can use Python that does these calculations for you! Let's practice with complex numbers, you need to write answers that are output of the print statements.
+
+num1, num2, num3, num4 = 125, 21, 30, 16
+
+# complex numbers
+cnum1 = complex(num1, num2)
+cnum2 = complex(num2, num4)
+print(cnum1, cnum2)
+
+
+# conj(x1+y1*i)  = x1-y1*i  
+print(cnum1.conjugate())    
+
+
+# (x1+y1*i) + (x2+y2*i)  = (x1+x2)+(y1+y2)*i 
+print(cnum1 + cnum2) 
+
+
+#(x1+y1*i)*(x2+y2*i) = (x1*x2-y1*y2)+(x1*y2+y1*x2)*i
+print(cnum1 * cnum2) 
+
+
+# (x1+y1*i)/(x2+y2*i) = [(x1*x2+y1*y2)+(y1*x2-x1*y2)*i] /(x2*x2+y2*y2)
+print(cnum1 / cnum2) 
+ # round the real numbers to two decimal places
+
+Answer 1:
+(125+21j) (21+16j)
+Answer 2:
+(125-21j)
+Answer 3:
+(146+37j)
+Answer 4:
+(2289+2441j)
+Answer 5:
+(4.25-2.24j)
+ 
+Question 2
+1 / 1 pts
+Fraction
+A common fraction, for example: {\displaystyle {\tfrac {17}{3}}}, consists of a numerator and a non-zero denominator and represents a rational number. Fractions are used to represent ratios, divisions, and percentages. Fractions cannot be represented by integers or floats, they need a special class, Fraction!
+
+from fractions import Fraction
+num1, num2, num3, num4 = 125, 21, 30, 16
+
+# fractions
+frac1 = Fraction(num1, num2)
+print(frac1)
+
+
+frac2 = Fraction(num3, num4)
+print(frac2)
+
+
+print(frac1 + frac2)
+
+
+print(frac1 * frac2)
+
+
+print(frac1 / frac2)
+
+
+Answer 1:
+125/21
+Answer 2:
+15/8
+Answer 3:
+1315/168
+Answer 4:
+625/56
+Answer 5:
+200/63
+ 
+Question 3
+1 / 1 pts
+Decimal
+The Decimal class is designed to create real numbers in the decimal format where the user controls the decimal number precision. Decimal numbers are immutable: when they are originated with a given precision, their precision cannot be changed! This property of Decimal can be used for generating prices ($1.25), controlled precision constants (pi = 3.141592653589793), etc.
+
+from decimal import *
+num1, num2, num3, num4 = 125, 21, 30, 16
+
+# decimal numbers
+print(num1/num2)
+
+
+getcontext().prec = 13   # set the decimal precision
+dec1 = Decimal(num1)/Decimal(num2)
+print(dec1)
+
+
+getcontext().prec = 3   # note the precision!!!
+print(dec1)
+
+
+dec2 = Decimal(num3)/Decimal(num4)
+print(dec2)
+
+
+Answer 1:
+5.9523809523809526
+Answer 2:
+5.952380952381
+Answer 3:
+5.952380952381
+Answer 4:
+1.88
+ 
+Question 4
+2 / 2 pts
+Binary, Octal, and Hexadecimal Numbers
+You need to remember that all numbers are internally represented as binary numbers (at the low level of the software abstraction such as the machine language). Also, all different numeric data types have their own binary format. For example:
+
+integer-long - 32 bits (4 bytes)
+integer-short - 16 bits (2 bytes)
+integer-very long - 64 bits (8 bytes)
+Depending on the number of bytes, very large and very small integers can be stored on the computer -- the more bytes, the larger or smaller integer (negative) can be stored on the computer. Nevertheless, there is always a limit. For example, the maximum number for an integer-long - 32 bits is 232-1 if the integer is unsigned (only positive values and 0) or 231-1 if the integer is signed (0, negative, and positive values).
+
+Float numbers are internally represented very differently from integers and have storage places for mantissa, exponent, and their signs. For example, 34.56 is a float number that in the scientific notation is represented as 3.456xE1, so the mantissa is 3.456 and exponent is 1. In binary form, 3 is '11', and .456 ~ 1/4 + 1/8 + 1/16 + 1/64 + 1/512 + 1/1024 or '.0111010011', where a dot is the binary point.
+
+So, the number 3.456 in the binary form is '0-11.0111010011-0-00000' where hyphens are separators for the fields corresponding to the sign of mantissa, mantissa, sign of exponent, and exponent. Also, we can normalize the form and move the binary point two bits to the left, in doing so, we need to  increase the exponent from 0 to 2: '0.110111010011.0.00010'.
+
+By default, all floats and integers are shown in the decimal format when you print them to the stdout or type them into the program. However, other number formats such as binary, octal or hexadecimal are used to display memory addresses, Unicode numbers, bytes, network data, etc. As a programmer, you may need to know how to manipulate, convert, and visualize numbers in binary, octal, and hexadecimal formats. But remember that in Python these formats are just string representations of integers!!!  
+
+# binary, octal , hexadecimal
+num1_binary = bin(125)
+print(num1_binary)
+
+
+print(type(num1_binary))
+
+
+num1_octal = oct(125)
+print(num1_octal)
+
+
+print(type(num1_octal))
+
+
+num1_hex = hex(125)
+print(num1_hex)
+
+
+print(type(num1_hex))
+
+
+num1 = 125
+print(num1.bit_length())
+
+
+print(int(num1_binary,2))
+
+
+print(int(num1_hex,16))
+
+
+Answer 1:
+0b1111101
+Answer 2:
+<class 'str'>
+Answer 3:
+0o175
+Answer 4:
+<class 'str'>
+Answer 5:
+0x7d
+Answer 6:
+<class 'str'>
+Answer 7:
+7
+Answer 8:
+125
+Answer 9:
+125
+ 
+Question 5
+2 / 2 pts
+Binary Types: Bytes, Byte Array, and Memory View
+Bytes, bytearray, and memoryview are binary sequence data types. Bytes are needed to work with binary files or text files if you need to encode text into a different format (utf-8 to utf-16, etc.). Memoryview is needed to read the binary representation of data in storage. Bytearrays are very similar to bytes, but they are mutable, whereas bytes (as strings) are immutable.
+
+# make bytes
+print(bytes(5)) # make 5 bytes equals to 0
+
+
+print(bytes([97, 98, 99])) # make 3 bytes equals to 97, 98, 99
+
+
+print(b'abc')    # using string, method 1
+
+
+print('abc'.encode('utf-8')) # using string, method 2
+
+
+print(bytes('abc', 'utf-8')) # using string, method 3
+
+
+print('abc'.encode('utf-16'))
+
+
+print('abc'.encode('utf-16-le'))
+
+
+# bytes are not mutable
+a = bytes('abc', 'utf-8')
+a[ 1] = 102 # bytes are immutable!!! Write the error message, last line
+
+
+# bytearray
+print(bytearray(5))
+
+
+print(bytearray([1, 2, 3]))
+
+
+print(bytearray('abc', 'utf-8'))
+
+
+print(bytearray('abc', 'utf-16'))
+
+
+# bytearray is mutable
+b = bytearray('abc', 'utf-8')
+print(b)
+
+
+b[ 1]=114
+print(b)
+
+
+# convert into strings
+a = bytes('abc', 'utf-8')
+print(a)
+print(a.decode('utf-8'))
+
+b = bytearray('abc', 'utf-16-le')
+print(b)
+bytearray(b'a\x00b\x00c\x00')
+print(b.decode('utf-16-le'))
+
+# concatenate bytes and bytearray
+print(a+b) # write the answer for the last print statement
+
+
+Answer 1:
+b'\x00\x00\x00\x00\x00'
+Answer 2:
+b'abc'
+Answer 3:
+b'abc'
+Answer 4:
+b'abc'
+Answer 5:
+b'abc'
+Answer 6:
+b'\xff\xfea\x00b\x00c\x00'
+Answer 7:
+b'a\x00b\x00c\x00'
+Answer 8:
+TypeError: 'bytes' object does not support item assignment
+Answer 9:
+bytearray(b'\x00\x00\x00\x00\x00')
+Answer 10:
+bytearray(b'\x01\x02\x03')
+Answer 11:
+bytearray(b'abc')
+Answer 12:
+bytearray(b'\xff\xfea\x00b\x00c\x00')
+Answer 13:
+bytearray(b'abc')
+Answer 14:
+bytearray(b'arc')
+Answer 15:
+b'abca\x00b\x00c\x00'
+ 
+Question 6
+2 / 2 pts
+Classes and Objects
+Every data type in Python is a class. Various values such as integers, floats, strings, Booleans, etc. are objects that belong to the corresponding built-in classes: Integer, Float, String, Boolean, etc.
+
+In addition to built-in data types, we can create our own classes. Objects (or instances) that are created by the class will have their class name as a data type.
+
+# A user defined class to represent Complex numbers
+class Complex:
+
+    # Constructor
+    def __init__(self, real, imag):
+        self.real = real
+        self.imag = imag
+
+    # prints the formal object's information
+    def __repr__(self):
+        return 'Complex(%s, %s)' % (self.real, self.imag)    
+
+    # prints the readable form, used by print()
+    def __str__(self):
+        return '%s + %si' % (self.real, self.imag)    
+
+
+# Driver program to test the class
+if __name__ == '__main__':
+    t = Complex(10, 20)
+    print(type(t))
+
+
+print (t)
+
+
+print (str(t))    # compare to the answer above
+
+
+print (repr(t))
+
+
+Answer 1:
+<class '__main__.Complex'>
+Answer 2:
+10 + 20i
+Answer 3:
+10 + 20i
+Answer 4:
+Complex(10, 20)
